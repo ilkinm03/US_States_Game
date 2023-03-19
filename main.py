@@ -10,12 +10,13 @@ turtle.shape(image)
 csv_data = "50_states.csv"
 states_data = pandas.read_csv(csv_data)
 states_list = states_data["state"].to_list()
+states_count = len(states_list)
 
 counter = 0
 game_is_on = True
 while game_is_on:
     answer_state = screen.textinput(
-        title="Guess the State",
+        title=f"Guess the State {counter}/{states_count}",
         prompt="What's another state's name?"
     ).title()
     if answer_state in states_list:
