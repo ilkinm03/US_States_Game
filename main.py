@@ -25,6 +25,9 @@ while len(found_states) < states_count:
         prompt="What's another state's name?"
     ).title()
     if answer_state == "Exit":
+        missing_states = [state for state in states_list if state not in found_states]
+        df = pandas.DataFrame(missing_states)
+        df.to_csv("states_to_learn.csv")
         break
     if answer_state in states_list and answer_state not in found_states:
         found_states.append(answer_state)
