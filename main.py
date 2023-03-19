@@ -16,4 +16,8 @@ answer_state = screen.textinput(
     prompt="What's another state's name?"
 ).title()
 
+counter = 0
+if answer_state in states_list:
+    counter += 1
+
 screen.exitonclick()
