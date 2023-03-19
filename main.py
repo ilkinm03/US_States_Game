@@ -18,16 +18,14 @@ states_data = pandas.read_csv(csv_data)
 states_list = states_data["state"].to_list()
 states_count = len(states_list)
 
-counter = 0
 found_states = []
-while counter < states_count:
+while len(found_states) < states_count:
     answer_state = screen.textinput(
-        title=f"Guess the State {counter}/{states_count}",
+        title=f"Guess the State {len(found_states)}/{states_count}",
         prompt="What's another state's name?"
     ).title()
     if answer_state in states_list and answer_state not in found_states:
         found_states.append(answer_state)
-        counter += 1
         x = states_data[states_data.state == answer_state]["x"]
         y = states_data[states_data.state == answer_state]["y"]
         state_name.goto(int(x), int(y))
