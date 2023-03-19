@@ -16,4 +16,4 @@ answer_state = screen.textinput(
     prompt="What's another state's name?"
 ).title()
 
-print(states_list)
+screen.exitonclick()
