@@ -19,8 +19,7 @@ states_list = states_data["state"].to_list()
 states_count = len(states_list)
 
 counter = 0
-game_is_on = True
-while game_is_on:
+while counter < states_count:
     answer_state = screen.textinput(
         title=f"Guess the State {counter}/{states_count}",
         prompt="What's another state's name?"
