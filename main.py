@@ -24,11 +24,11 @@ while len(found_states) < states_count:
         title=f"Guess the State {len(found_states)}/{states_count}",
         prompt="What's another state's name?"
     ).title()
+    if answer_state == "Exit":
+        break
     if answer_state in states_list and answer_state not in found_states:
         found_states.append(answer_state)
         x = states_data[states_data.state == answer_state]["x"]
         y = states_data[states_data.state == answer_state]["y"]
         state_name.goto(int(x), int(y))
         state_name.write(answer_state, align="center", font=FONT)
-
-screen.exitonclick()
